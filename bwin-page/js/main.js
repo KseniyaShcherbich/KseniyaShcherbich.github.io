@@ -1,14 +1,19 @@
 const showInfoButtons = document.getElementsByClassName("show-info");
 const hideInfoButtons = document.getElementsByClassName("hide-info");
 const infoBlocks = document.getElementsByClassName("info");
+const bwinSections = document.getElementsByClassName("bwin-section");
 
 for (let i = 0; i < showInfoButtons.length; i++) {
   showInfoButtons[i].addEventListener("click", function () {
     infoBlocks[i].style.display = "grid";
     showInfoButtons[i].style.display = "none";
     hideInfoButtons[i].style.display = "flex";
-    document.querySelector(".bwin-section").style.borderRadius =
-      "15px 15px 0px 0px";
+
+    const bwinSection = findBwinSection(showInfoButtons[i]);
+
+    if (bwinSection) {
+      bwinSection.style.borderRadius = "15px 15px 0px 0px";
+    }
   });
 }
 
@@ -17,8 +22,21 @@ for (let i = 0; i < hideInfoButtons.length; i++) {
     infoBlocks[i].style.display = "none";
     showInfoButtons[i].style.display = "flex";
     hideInfoButtons[i].style.display = "none";
-    document.querySelector(".bwin-section").style.borderRadius = "15px";
+
+    const bwinSection = findBwinSection(showInfoButtons[i]);
+
+    if (bwinSection) {
+      bwinSection.style.borderRadius = "";
+    }
   });
+}
+
+function findBwinSection(button) {
+  const infoBlock = button.parentElement;
+
+  const bwinSection = infoBlock.querySelector(".bwin-section");
+
+  return bwinSection;
 }
 
 const block1 = document.getElementById("block1");
