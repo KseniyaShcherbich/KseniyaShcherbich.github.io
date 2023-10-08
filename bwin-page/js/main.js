@@ -7,6 +7,8 @@ for (let i = 0; i < showInfoButtons.length; i++) {
     infoBlocks[i].style.display = "grid";
     showInfoButtons[i].style.display = "none";
     hideInfoButtons[i].style.display = "flex";
+    document.querySelector(".bwin-section").style.borderRadius =
+      "15px 15px 0px 0px";
   });
 }
 
@@ -15,6 +17,7 @@ for (let i = 0; i < hideInfoButtons.length; i++) {
     infoBlocks[i].style.display = "none";
     showInfoButtons[i].style.display = "flex";
     hideInfoButtons[i].style.display = "none";
+    document.querySelector(".bwin-section").style.borderRadius = "15px";
   });
 }
 
